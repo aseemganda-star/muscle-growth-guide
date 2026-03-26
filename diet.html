@@ -17,7 +17,7 @@
       <a href="body-factors.html">Body Factors</a>
       <a href="myths-and-faqs.html">Myths & FAQ</a>
     </nav>
-    <button id="darkModeBtn" class="dark-btn">?? Dark Mode</button>
+    <button id="darkModeBtn" class="dark-btn">🌙 Dark Mode</button>
   </header>
 
   <section class="hero">
@@ -82,12 +82,12 @@
     const root = document.documentElement;
     const stored = localStorage.getItem('theme') || 'light';
     root.setAttribute('data-theme', stored);
-    darkBtn.textContent = stored === 'dark' ? '?? Light Mode' : '?? Dark Mode';
+    darkBtn.textContent = stored === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     darkBtn.onclick = () => {
       const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', nextTheme);
       localStorage.setItem('theme', nextTheme);
-      darkBtn.textContent = nextTheme === 'dark' ? '?? Light Mode' : '?? Dark Mode';
+      darkBtn.textContent = nextTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     };
 
     document.getElementById('calcForm').addEventListener('submit', function(event) {
