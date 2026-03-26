@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/Admin/muscle-growth-guide/**)",
+      "Bash(done)"
+    ]
+  }
+}

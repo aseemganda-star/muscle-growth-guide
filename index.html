@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1f8eff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MuscleGuide">
   <title>Muscle Growth Guide</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.svg">
 </head>
 <body>
   <div class="progress-bar"></div>
   <button id="backToTop" title="Back to Top">↑</button>
   <header class="navbar">
     <div class="logo">Muscle Growth Guide</div>
-    <nav>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-cb">
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-menu">
       <a class="active" href="index.html">Home</a>
       <a href="workouts.html">Workouts</a>
       <a href="diet.html">Nutrition</a>
@@ -119,6 +129,53 @@
       localStorage.setItem('theme', nextTheme);
       darkBtn.textContent = nextTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     };
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+
+    // Install App banner
+    let deferredPrompt;
+    const installBanner = document.getElementById('installBanner');
+    const installBtn = document.getElementById('installBtn');
+    const dismissBtn = document.getElementById('dismissInstall');
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (!localStorage.getItem('installDismissed')) {
+        installBanner.style.display = 'flex';
+      }
+    });
+
+    installBtn.addEventListener('click', async () => {
+      installBanner.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      }
+    });
+
+    dismissBtn.addEventListener('click', () => {
+      installBanner.style.display = 'none';
+      localStorage.setItem('installDismissed', '1');
+    });
   </script>
+
+  <div id="installBanner" class="install-banner" style="display:none">
+    <div class="install-banner-content">
+      <span class="install-icon">💪</span>
+      <div>
+        <strong>Install Muscle Growth Guide</strong>
+        <p>Add to your home screen for offline access</p>
+      </div>
+    </div>
+    <div class="install-banner-actions">
+      <button id="installBtn" class="install-btn-yes">Install</button>
+      <button id="dismissInstall" class="install-btn-no">Not now</button>
+    </div>
+  </div>
 </body>
 </html>

@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1f8eff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MuscleGuide">
   <title>Body Factors - Muscle Growth Guide</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.svg">
 </head>
 <body>
   <div class="progress-bar"></div>
   <button id="backToTop" title="Back to Top">↑</button>
   <header class="navbar">
     <div class="logo">Muscle Growth Guide</div>
-    <nav>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-cb">
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-menu">
       <a href="index.html">Home</a>
       <a href="workouts.html">Workouts</a>
       <a href="diet.html">Nutrition</a>
@@ -100,6 +110,7 @@
       localStorage.setItem('theme', nextTheme);
       darkBtn.textContent = nextTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     };
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('service-worker.js'); }
   </script>
 </body>
 </html>
