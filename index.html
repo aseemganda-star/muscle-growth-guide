@@ -10,7 +10,7 @@
   <title>Muscle Growth Guide</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icon-192.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
   <div class="progress-bar"></div>
@@ -129,6 +129,10 @@
       localStorage.setItem('theme', nextTheme);
       darkBtn.textContent = nextTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     };
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => { document.getElementById('nav-toggle').checked = false; });
+    });
 
     // Service Worker registration
     if ('serviceWorker' in navigator) {

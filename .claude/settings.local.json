@@ -4,7 +4,14 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Read(//c/Users/Admin/muscle-growth-guide/**)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(node -e \"require\\(''canvas''\\)\")",
+      "Bash(node -e \"require\\(''sharp''\\)\")",
+      "Bash(node -e \"require\\(''jimp''\\)\")",
+      "Bash(ls C:/Users/Admin/muscle-growth-guide/*.js)",
+      "Bash(python -c \"from PIL import Image; print\\(''PIL ok''\\)\")",
+      "Bash(magick --version)",
+      "Bash(ls:*)"
     ]
   }
 }

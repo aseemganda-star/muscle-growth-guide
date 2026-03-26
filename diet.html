@@ -10,7 +10,7 @@
   <title>Nutrition & Calculator - Muscle Growth Guide</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icon-192.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
   <div class="progress-bar"></div>
@@ -169,6 +169,9 @@
       const carbs = Math.max(0, Math.round((calories - protein * 4 - 25 * 4) / 4));
       const fat = Math.max(0, Math.round((calories - protein * 4 - carbs * 4) / 9));
       document.getElementById('calcResults').innerHTML = `<p><strong>Calories:</strong> ${calories} kcal/day</p><p><strong>Protein:</strong> ${protein} g/day</p><p><strong>Carbs:</strong> ${carbs} g/day</p><p><strong>Fat:</strong> ${fat} g/day</p>`;
+    });
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => { document.getElementById('nav-toggle').checked = false; });
     });
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('service-worker.js'); }
   </script>
