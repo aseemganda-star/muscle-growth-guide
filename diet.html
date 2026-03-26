@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="progress-bar"></div>
+  <button id="backToTop" title="Back to Top">↑</button>
   <header class="navbar">
     <div class="logo">Muscle Growth Guide</div>
     <nav>
@@ -67,17 +69,54 @@
     <section class="section-card">
       <h2>Nutrition Videos</h2>
       <div class="grid-2">
+        <div class="card"><h3>Complete Guide to Nutrition for Muscle Building</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/7ywGnIHMkzg" title="Complete Guide to Nutrition for Muscle Building" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
         <div class="card"><h3>The Smartest Way To Use Protein To Build Muscle (Science Explained)</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/Pok0Jg2JAkE" title="The Smartest Way To Use Protein To Build Muscle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-        <div class="card"><h3>How To Build Muscle And Lose Fat At The Same Time</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/M4K0s792wAU" title="How To Build Muscle And Lose Fat At The Same Time" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Muscle Growth Guide</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>📚 Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="diet.html">Nutrition</a>
+        <a href="sleep.html">Recovery</a>
+        <a href="body-factors.html">Body Factors</a>
+        <a href="myths-and-faqs.html">Myths & FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h3>💡 Resources</h3>
+        <a href="#" onclick="alert('Placeholder for future resource')">Training Guides</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Nutrition Plans</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Community</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Contact</a>
+      </div>
+      <div class="footer-tagline">
+        <p><strong>Muscle Growth Guide</strong> — Science-backed training and nutrition for natural muscle building. © 2026. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.querySelector('.progress-bar').style.width = scrollPercentage + '%';
+      
+      const backToTopBtn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Back to top button
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     const darkBtn = document.getElementById('darkModeBtn');
     const root = document.documentElement;
     const stored = localStorage.getItem('theme') || 'light';

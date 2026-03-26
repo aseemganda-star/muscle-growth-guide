@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="progress-bar"></div>
+  <button id="backToTop" title="Back to Top">↑</button>
   <header class="navbar">
     <div class="logo">Muscle Growth Guide</div>
     <nav>
@@ -38,10 +40,31 @@
 
     <section class="section-card">
       <h2>Intermediate: 4-Day Upper/Lower</h2>
-      <div class="grid-2">
-        <article class="card"><h3>Upper</h3><p>Push/pull mix, plus arm work.</p></article>
-        <article class="card"><h3>Lower</h3><p>Squat, deadlift variant, accessory hamstrings/quads/core.</p></article>
+      <div class="split-section">
+        <h3>📌 Upper Day (Push Focus)</h3>
+        <ul>
+          <li><strong>Bench Press:</strong> 4 sets x 6-8 reps - Primary chest builder</li>
+          <li><strong>Incline Dumbbell Press:</strong> 3 sets x 8-10 reps - Upper chest emphasis</li>
+          <li><strong>Barbell Rows:</strong> 4 sets x 6-8 reps - Strength phase</li>
+          <li><strong>Pull-ups or Lat Pulldown:</strong> 3 sets x 8-10 reps - Back width</li>
+          <li><strong>Shoulder Press (Machine or Dumbbell):</strong> 3 sets x 8-10 reps</li>
+          <li><strong>Dips or Chest Dips:</strong> 3 sets x 8-12 reps - Tricep/chest</li>
+          <li><strong>Face Pulls:</strong> 3 sets x 12-15 reps - Rear delts, shoulder health</li>
+        </ul>
       </div>
+      <div class="split-section">
+        <h3>📌 Lower Day (Squat Focus)</h3>
+        <ul>
+          <li><strong>Barbell Back Squat:</strong> 4 sets x 6-8 reps - Main power mover</li>
+          <li><strong>Romanian Deadlift (RDL):</strong> 4 sets x 6-8 reps - Hamstring strength</li>
+          <li><strong>Leg Press:</strong> 3 sets x 8-10 reps - Volume and quad hypertrophy</li>
+          <li><strong>Leg Curls:</strong> 3 sets x 10-12 reps - Hamstring isolation</li>
+          <li><strong>Leg Extensions:</strong> 3 sets x 10-12 reps - Quad isolation and pump</li>
+          <li><strong>Calf Raises:</strong> 3 sets x 12-15 reps - Calf development</li>
+          <li><strong>Core Work (Planks or Ab Wheel):</strong> 3 sets x 10-20 reps</li>
+        </ul>
+      </div>
+      <p><strong>Weekly Structure:</strong> Mon: Upper Push, Tue: Lower Squat, Wed: Rest, Thu: Upper Pull, Fri: Lower Deadlift, Sat-Sun: Rest. Adjust volume or intensity based on recovery.</p>
     </section>
 
     <section class="section-card">
@@ -56,12 +79,12 @@
       <h2>Workout Video Library</h2>
       <div class="grid-2">
         <div class="card">
-          <h3>How To Build Muscle (Explained In 5 Levels)</h3>
-          <div class="video-wrap"><iframe width="560" height="315" src="https://www.youtube.com/embed/lu_BObG6dj8" title="How To Build Muscle (Explained In 5 Levels)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          <h3>The Science of Building Muscle</h3>
+          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/R6A4HhBqvvs" title="The Science of Building Muscle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
         </div>
         <div class="card">
-          <h3>The Best Exercises For Every Muscle ft. Jeff Nippard</h3>
-          <div class="video-wrap"><iframe width="560" height="315" src="https://www.youtube.com/embed/XFpT41748hM" title="The Best Exercises For Every Muscle ft. Jeff Nippard" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          <h3>How To Build Muscle (Explained In 5 Levels)</h3>
+          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/lu_BObG6dj8" title="How To Build Muscle (Explained In 5 Levels)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
         </div>
         <div class="card">
           <h3>The #1 Full Body Routine to Build Muscle & Lose Fat</h3>
@@ -88,10 +111,47 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Muscle Growth Guide</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>📚 Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="diet.html">Nutrition</a>
+        <a href="sleep.html">Recovery</a>
+        <a href="body-factors.html">Body Factors</a>
+        <a href="myths-and-faqs.html">Myths & FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h3>💡 Resources</h3>
+        <a href="#" onclick="alert('Placeholder for future resource')">Training Guides</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Nutrition Plans</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Community</a>
+        <a href="#" onclick="alert('Placeholder for future resource')">Contact</a>
+      </div>
+      <div class="footer-tagline">
+        <p><strong>Muscle Growth Guide</strong> — Science-backed training and nutrition for natural muscle building. © 2026. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.querySelector('.progress-bar').style.width = scrollPercentage + '%';
+      
+      const backToTopBtn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Back to top button
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     const darkBtn = document.getElementById('darkModeBtn');
     const root = document.documentElement;
     const stored = localStorage.getItem('theme') || 'light';
