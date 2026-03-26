@@ -17,7 +17,7 @@
       <a href="body-factors.html">Body Factors</a>
       <a href="myths-and-faqs.html">Myths & FAQ</a>
     </nav>
-    <button id="darkModeBtn" class="dark-btn">?? Dark Mode</button>
+    <button id="darkModeBtn" class="dark-btn">🌙 Dark Mode</button>
   </header>
 
   <section class="hero">
@@ -35,10 +35,10 @@
     </section>
 
     <section class="grid-2">
-      <article class="card"><h3>??? Workouts</h3><p>Progressive overload, splits, and form-first training.</p><a class="button-secondary" href="workouts.html">Open workouts</a></article>
-      <article class="card"><h3>?? Nutrition</h3><p>Calculator for calories, macros and protein.</p><a class="button-secondary" href="diet.html">Open nutrition</a></article>
-      <article class="card"><h3>?? Recovery</h3><p>Sleep and recovery are key for growth.</p><a class="button-secondary" href="sleep.html">Open recovery</a></article>
-      <article class="card"><h3>?? Body Factors</h3><p>Adapt training to your body type.</p><a class="button-secondary" href="body-factors.html">Open body factors</a></article>
+      <article class="card"><h3>💪 Workouts</h3><p>Progressive overload, splits, and form-first training.</p><a class="button-secondary" href="workouts.html">Open workouts</a></article>
+      <article class="card"><h3>🥗 Nutrition</h3><p>Calculator for calories, macros and protein.</p><a class="button-secondary" href="diet.html">Open nutrition</a></article>
+      <article class="card"><h3>😴 Recovery</h3><p>Sleep and recovery are key for growth.</p><a class="button-secondary" href="sleep.html">Open recovery</a></article>
+      <article class="card"><h3>📏 Body Factors</h3><p>Adapt training to your body type.</p><a class="button-secondary" href="body-factors.html">Open body factors</a></article>
     </section>
 
     <section class="section-card">
@@ -64,12 +64,12 @@
     const root = document.documentElement;
     const stored = localStorage.getItem('theme') || 'light';
     root.setAttribute('data-theme', stored);
-    darkBtn.textContent = stored === 'dark' ? '?? Light Mode' : '?? Dark Mode';
+    darkBtn.textContent = stored === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     darkBtn.onclick = () => {
       const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', nextTheme);
       localStorage.setItem('theme', nextTheme);
-      darkBtn.textContent = nextTheme === 'dark' ? '?? Light Mode' : '?? Dark Mode';
+      darkBtn.textContent = nextTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     };
   </script>
 </body>
