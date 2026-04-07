@@ -168,9 +168,15 @@
     });
 
     // Close hamburger menu when a link is clicked
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    console.log('Found', navLinks.length, 'nav links');
+    console.log('Nav toggle element:', navToggle);
+
+    navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        document.getElementById('nav-toggle').checked = false;
+        console.log('Link clicked, closing menu...');
+        navToggle.checked = false;
       });
     });
   </script>
