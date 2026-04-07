@@ -166,6 +166,13 @@
       installBanner.style.display = 'none';
       localStorage.setItem('installDismissed', '1');
     });
+
+    // Close hamburger menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-toggle').checked = false;
+      });
+    });
   </script>
 
   <div id="installBanner" class="install-banner" style="display:none">
